@@ -9,8 +9,9 @@
     value="''"
     (change)="addFile($event)"
   />
-  <img
-    *ngIf="imageSrc"
-    [src]="domSanitizer.bypassSecurityTrustUrl(imageSrc)"
+</div>
+<div>
+  <img *ngFor="let img of imageSrc" style="width: 200px; height: 200px;"
+       [src]="domSanitizer.bypassSecurityTrustUrl(img)"
   />
 </div>

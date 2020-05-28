@@ -9,7 +9,8 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class AppComponent {
   title = 'app';
-  imageSrc: any;
+  imageSrc: Array<any> =  [];
+  files: Array<any> = [];
   constructor(public domSanitizer: DomSanitizer) {}
 
 
@@ -18,10 +19,11 @@ export class AppComponent {
     if ( file instanceof Blob ) {
       const reader = new FileReader();
       reader.onload = e => {
-        this.imageSrc = reader.result;
+        this.imageSrc.push(reader.result);
       };
       reader.readAsDataURL(file);
-      console.log(file, 'image data');
+      this.files.push(file)
+      console.log(this.files, 'image data');
     }
   }
 
