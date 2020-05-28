@@ -1,0 +1,16 @@
+<h1>Upload an image</h1>
+
+<div>
+  <input
+    type="file"
+    name="files[]"
+    class="fileInput"
+    placeholder="''"
+    value="''"
+    (change)="addFile($event)"
+  />
+  <img
+    *ngIf="imageSrc"
+    [src]="domSanitizer.bypassSecurityTrustUrl(imageSrc)"
+  />
+</div>
